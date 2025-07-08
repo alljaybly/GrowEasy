@@ -6,7 +6,7 @@ from datetime import datetime
 import psutil
 
 class GrowEasy:
-         def __init__(self):
+    def __init__(self):
              """Initialize GrowEasy microfinance app"""
              self.db_name = 'groweasy.db'
              self.setup_database()
@@ -344,15 +344,15 @@ class GrowEasy:
              print("🤖 AI Model: Rule-based algorithm")
 
      def main():
-         """Main function to run GrowEasy application"""
-         try:
-             app = GrowEasy()
-             app.run()
-         except KeyboardInterrupt:
-             print("\n\n👋 GrowEasy closed by user")
-         except Exception as e:
-             print(f"\n❌ Application error: {e}")
+    """Main function to run GrowEasy application"""
+    try:
+        app = GrowEasy()
+        app.run()
+    except KeyboardInterrupt:
+        print("\n\n👋 GrowEasy closed by user")
+    except Exception as e:
+        print(f"\n❌ Application error: {e}")
 
-     if __name__ == "__main__":
-         main()
+if __name__ == "__main__":
+    main()
      
