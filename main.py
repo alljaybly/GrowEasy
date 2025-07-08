@@ -1,9 +1,9 @@
 
      import sqlite3
-     import os
-     import time
-     from datetime import datetime
-     import psutil
+import os
+import time
+from datetime import datetime
+import psutil
 
      class GrowEasy:
          def __init__(self):
