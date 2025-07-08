@@ -1,0 +1,108 @@
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 15, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 15, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 49, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 49, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 78, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 78, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 98, Col 10
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 98, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 118, Col 10
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 118, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 135, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 135, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 166, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 166, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 172, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 172, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 185, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 185, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 212, Col 10
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 212, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 232, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 232, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 260, Col 10
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 260, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 289, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 289, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 315, Col 10
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 315, Col 10
+SyntaxError: unindent does not match any outer indentation level
+(pyright-extended)
+Ln 346, Col 1
+Unindent amount does not match previous indent
+(pyright-extended)
+Ln 346, Col 6
+Instance methods should take a "self" parameter
+(pyright-extended)
+Ln 346, Col 10
+SyntaxError: Expected an indented block after function definition
+(pyright-extended)
+Ln 347, Col 5
+Expected indented block
+(pyright-extended)
+Ln 347, Col 5
+"GrowEasy" is not defined
+(pyright-extended)
+Ln 349, Col 15
+"main" is not defined
+(pyright-extended)
+Ln 357, Col 5
+SyntaxError: Expected dedent, found end of file
+(pyright-extended)
+Ln 358, Col 6
