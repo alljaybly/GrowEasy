@@ -1,11 +1,11 @@
 
-     import sqlite3
+import sqlite3
 import os
 import time
 from datetime import datetime
 import psutil
 
-     class GrowEasy:
+class GrowEasy:
          def __init__(self):
              """Initialize GrowEasy microfinance app"""
              self.db_name = 'groweasy.db'
