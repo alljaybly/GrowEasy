@@ -1,12 +1,10 @@
 
 import sqlite3
-import numpy as np
 import json
 import os
 import time
 from datetime import datetime
 import psutil
-import tflite_runtime.interpreter as tflite
 
 class GrowEasy:
     def __init__(self):
@@ -52,58 +50,14 @@ class GrowEasy:
         print("✅ Database initialized successfully")
     
     def setup_model(self):
-        """Setup TensorFlow Lite model for credit scoring"""
-        if not os.path.exists(self.model_path):
-            self.create_simple_model()
-        
-        try:
-            self.interpreter = tflite.Interpreter(model_path=self.model_path)
-            self.interpreter.allocate_tensors()
-            print("✅ TensorFlow Lite model loaded successfully")
-        except Exception as e:
-            print(f"⚠️ Model loading failed: {e}")
-            self.interpreter = None
+        """Setup fallback credit scoring model"""
+        self.interpreter = None
+        print("✅ Fallback credit scoring model initialized")
     
-    def create_simple_model(self):
-        """Create a simple TensorFlow Lite model for demonstration"""
-        # This creates a basic model file for demonstration
-        # In production, you'd train this on real financial data
-        model_data = b'\x18\x00\x00\x00TFL3\x00\x00\x0e\x00\x18\x00\x04\x00\x08\x00\x0c\x00\x10\x00\x14\x00\x0e\x00\x00\x00'
-        
-        try:
-            with open(self.model_path, 'wb') as f:
-                # Create a minimal valid TFLite model structure
-                f.write(model_data)
-            print("✅ Demo model created")
-        except Exception as e:
-            print(f"⚠️ Could not create model: {e}")
+    
     
     def calculate_credit_score(self, savings, loans, income, expenses):
-        """Calculate credit score using AI model or fallback algorithm"""
-        try:
-            if self.interpreter:
-                # Prepare input data
-                input_data = np.array([[savings, loans, income, expenses]], dtype=np.float32)
-                
-                # Get input/output details
-                input_details = self.interpreter.get_input_details()
-                output_details = self.interpreter.get_output_details()
-                
-                # Set input tensor
-                self.interpreter.set_tensor(input_details[0]['index'], input_data)
-                
-                # Run inference
-                self.interpreter.invoke()
-                
-                # Get output
-                output_data = self.interpreter.get_tensor(output_details[0]['index'])
-                score = float(output_data[0]) * 100
-                
-                return max(0, min(100, score))
-        except Exception as e:
-            print(f"⚠️ AI model inference failed: {e}")
-        
-        # Fallback algorithm for credit scoring
+        """Calculate credit score using rule-based algorithm"""
         return self.fallback_credit_score(savings, loans, income, expenses)
     
     def fallback_credit_score(self, savings, loans, income, expenses):
@@ -411,7 +365,7 @@ class GrowEasy:
         db_size = os.path.getsize(self.db_name) / 1024 if os.path.exists(self.db_name) else 0
         print(f"🗄️ Database Size: {db_size:.1f} KB")
         
-        print(f"🤖 AI Model: {'✅ Loaded' if self.interpreter else '❌ Fallback mode'}")
+        print("🤖 AI Model: ✅ Rule-based scoring active")
 
 def main():
     """Main function to run GrowEasy application"""
