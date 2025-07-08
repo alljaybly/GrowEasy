@@ -417,6 +417,7 @@ def main():
     """Main function to run GrowEasy application"""
     try:
         app = GrowEasy()
+        print(f"App memory usage: {app.get_memory_usage():.1f} MB")
         app.run()
     except KeyboardInterrupt:
         print("\n\n👋 GrowEasy closed by user")
