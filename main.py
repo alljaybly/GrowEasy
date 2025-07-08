@@ -194,7 +194,7 @@ class GrowEasy:
         conn.close()
         return history
     
-    def simulate_wifi_sync(self):
+    def sync_log.txt(self):
         """Simulate Wi-Fi synchronization with cloud server"""
         print("\n🔄 Starting Wi-Fi sync simulation...")
         time.sleep(1)
