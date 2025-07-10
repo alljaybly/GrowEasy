@@ -60,13 +60,14 @@ class GrowEasy:
             score -= min(25, debt_ratio * 50)
         
         # Expense management (lower expenses relative to income is better)
-        if income > 0:
+        
             expense_ratio = expenses / income
             if expense_ratio < 0.5:
                 score += 10
             elif expense_ratio > 0.8:
                 score -= 15
-        
+        else:
+            score -= 20
         # Absolute savings amount
         if savings > 1000:
             score += 10
@@ -242,9 +243,21 @@ class GrowEasy:
         try:
             print("\n💵 Enter financial information:")
             savings = float(input("Current Savings (R): "))
+            if savings < 0:
+                print("❌ Savings cannot be negative")
+                return                   
             loans = float(input("Outstanding Loans (R): "))
+            if loans < 0:
+                print("❌ Loans cannot be negative")
+                return
             income = float(input("Monthly Income (R): "))
+            if income < 0:
+                print("❌ Income cannot be negative")
+                return
             expenses = float(input("Monthly Expenses (R): "))
+            if expenses < 0:
+                print("❌ Expenses cannot be negative")
+                return
             
             print("\n🤖 Calculating credit score...")
             time.sleep(1)  # Simulate processing
@@ -275,13 +288,13 @@ class GrowEasy:
         
         if score >= 80:
             print("🟢 Excellent - Low risk borrower")
-            recommendation = "Approved for loans up to R{:.0f}".format(income * 3)
+            recommendation = "Approved for loans up to R{:.0f}".format(income * 3 if income > 0 else 1000)
         elif score >= 60:
             print("🟡 Good - Moderate risk borrower")
-            recommendation = "Approved for loans up to R{:.0f}".format(income * 2)
+            recommendation = "Approved for loans up to R{:.0f}".format(income * 2 if income > 0 else 1000)
         elif score >= 40:
             print("🟠 Fair - Higher risk, consider smaller amounts")
-            recommendation = "Approved for loans up to R{:.0f}".format(income * 1)
+            recommendation = "Approved for loans up to R{:.0f}".format(income * 1 if income > 0 else 1000)
         else:
             print("🔴 Poor - Focus on building savings first")
             recommendation = "Recommend savings program before loans"
@@ -291,7 +304,8 @@ class GrowEasy:
         print("\n📈 Financial Summary:")
         print(f"💰 Savings: R{savings:,.2f}")
         print(f"💸 Loans: R{loans:,.2f}")
-        print(f"📊 Debt-to-Income: {(loans/income*100) if income > 0 else 0:.1f}%")
+        debt_to_income = (loans / income * 100) if income > 0 else float('inf') if loans > 0 else 0
+        print(f"📊 Debt-to-Income: {debt_to_income:.1f}%")
         print(f"💾 Memory Usage: {self.get_memory_usage():.1f} MB")
         print("="*50)
     
@@ -357,6 +371,7 @@ def main():
     try:
         app = GrowEasy()
         app.run()
+        print(app.get_user_history("1"))
     except KeyboardInterrupt:
         print("\n\n👋 GrowEasy closed by user")
     except Exception as e:
