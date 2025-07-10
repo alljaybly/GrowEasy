@@ -253,6 +253,15 @@ class GrowEasy:
             
             if self.add_transaction(user_id, savings, loans, income, expenses):
                 self.display_credit_result(credit_score, savings, loans, income, expenses)
+                history = self.get_user_history(user_id)
+print(f"\n📋 Transaction History for {user_id}")
+print("-" * 60)
+print("Date\t\tSavings\tLoans\tIncome\tExpenses")
+print("-" * 60)
+for record in history:
+    savings, loans, income, expenses, timestamp = record
+    date = timestamp.split('T')[0]
+    print(f"{date}\tR{savings:.0f}\tR{loans:.0f}\tR{income:.0f}\tR{expenses:.0f}")
             
         except ValueError:
             print("❌ Please enter valid numbers")
