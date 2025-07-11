@@ -239,6 +239,8 @@ class GrowEasy:
         if not user_id:
             print("❌ User ID cannot be empty")
             return
+        print("📝 Please enter positive numbers for all fields. Press Enter to proceed.")
+        input("👉 ")
         
         try:
             print("\n💵 Enter financial information:")
