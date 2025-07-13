@@ -1,0 +1,6 @@
+Problem Definition and Context: "Rural South Africans lack access to fair credit scoring due to limited financial data and connectivity. GrowEasy provides a rule-based, offline credit assessment tool, targeting farmers with incomes as low as R1000/month, addressing financial inclusion."
+Identified Constraints: "Operates on <50MB memory, <5W power on a low-spec laptop, offline with intermittent WiFi, processing local SQLite data."
+Design Alternatives and Final Decisions: "Considered cloud-based scoring but chose offline SQLite due to unreliable internet, reducing data needs by 100% and enabling local validation."
+Tools Used: "Python for logic, SQLite for storage, chosen for low memory (15.9MB) and offline capability on ESP32-like constraints."
+Performance Tests and Benchmarks: "Tested with savings: 0, loans: 0, income: 1000, expenses: 200 (60/100, 0.0% debt-to-income); savings: 5000, loans: 10000, income: 2000, expenses: 1500 (45/100, 500.0%); memory: 15.9MB, exceeding 48-hour target on minimal power."
+Screenshots/Videos: Record a 45-second video showing input (savings: 0, loans: 0, income: 1000, expenses: 200) and output (60/100, 0.0% debt-to-income) in Replit console.
