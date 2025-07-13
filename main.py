@@ -181,7 +181,12 @@ class GrowEasy:
         print("4. 🔄 Sync Data (Wi-Fi)")
         print("5. 💾 System Status")
         print("6. ❌ Exit")
+        print("7. 📈 Savings Growth Simulator")
         print("="*50)
+
+    def simulate_growth(self, savings, months, monthly_save):
+        new_savings = savings + (monthly_save * months)
+        return max(0, min(100, 60 + (new_savings * 0.001)))  # Caps at 100
     
     def run(self):
         """Main application loop"""
@@ -191,7 +196,7 @@ class GrowEasy:
         
         while True:
             self.display_main_menu()
-            choice = input("\n👉 Enter your choice (1-6): ").strip()
+            choice = input("👉 Enter your choice (1-7): ").strip()
             
             if choice == '1':
                 self.handle_add_user()
@@ -207,8 +212,21 @@ class GrowEasy:
                 print("\n👋 Thank you for using GrowEasy!")
                 print("💚 Empowering financial inclusion in rural communities")
                 break
+            elif choice == "7":
+                print("\n💡 Savings Growth Simulator")
+                print("------------------------")
+
+                try:
+                    savings = float(input("Enter current savings (R): "))
+                    months = int(input("Enter number of months to save: "))
+                    monthly_save = float(input("Enter monthly savings (R): "))
+                    future_score = self.simulate_growth(savings, months, monthly_save)
+                    print(f"📈 Projected Credit Score after {months} months: {future_score:.0f}/100")
+                except ValueError:
+                    print("❌ Please enter valid numbers")
             else:
                 print("❌ Invalid choice. Please try again.")
+                    
     
     def handle_add_user(self):
         """Handle adding a new user"""
@@ -288,6 +306,9 @@ class GrowEasy:
         print("="*50)
         print(f"🎯 Credit Score: {score:.0f}/100")
         
+        def simulate_growth(self, savings, months, monthly_save):
+            new_savings = savings + (monthly_save * months)
+            return max(0, min(100, 60 + (new_savings * 0.001)))  # Caps at 100
         if score >= 80:
             print("🟢 Excellent - Low risk borrower")
             recommendation = "Approved for loans up to R{:.0f}".format(income * 3 if income > 0 else 1000)
